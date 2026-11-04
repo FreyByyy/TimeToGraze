@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Time to Graze</name>
+  <author>frbyyy</author>
+  <packageId>frbyyy.TimeToGraze</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+    <li>1.7</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+  <description>A small animal husbandry expansion. When penned animals get hungry, your handlers rope them up, lead them out to a pasture zone to graze, and bring them back home.
+
+Features:
+- New "Pasture" zone (Zones menu). Link one or more pastures to a pen; the herd is taken to the pasture with the most grass.
+- New "Grazing" tab on the pen marker: grazing hours, start conditions (hunger below X%, pen food running out), return conditions (everyone fed, end of hours or nightfall, danger), herd filter.
+- Grazing animals can still wander off, but less often than outside a pen.
+- Assign a shepherd (a colonist who watches the herd the whole time) and/or a herding dog (new "Herding" training). Guards make wandering and predator attacks much rarer, chase off predators, and the shepherd enjoys a quiet day at the pasture.
+- Everything is tunable in mod settings.
+
+Herding can be trained by Husky, Labrador retriever, Yorkshire terrier, wolves and wargs. Other races can opt in by adding TTG_Herding to race/trainableTags.
+
+Небольшое расширение животноводства: животновод сам выводит голодное стадо на пастбище, а пастух и пастушья собака его стерегут.</description>
+</ModMetaData>

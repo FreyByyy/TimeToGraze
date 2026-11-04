@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Grazing data + tab on every pen marker (vanilla and modded). -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[comps/li[@Class="CompProperties_AnimalPenMarker"]]/comps</xpath>
+    <value>
+      <li Class="TimeToGraze.CompProperties_Grazing" />
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[comps/li[@Class="CompProperties_AnimalPenMarker"]]/inspectorTabs</xpath>
+    <value>
+      <li>TimeToGraze.ITab_PenGrazing</li>
+    </value>
+  </Operation>
+
+  <!-- Pasture zone right after the growing zone in the Zones menu. -->
+  <Operation Class="PatchOperationInsert">
+    <xpath>Defs/DesignationCategoryDef[defName="Zone"]/specialDesignatorClasses/li[text()="Designator_ZoneAdd_Growing"]</xpath>
+    <order>Append</order>
+    <value>
+      <li>TimeToGraze.Designator_ZoneAdd_Pasture</li>
+    </value>
+  </Operation>
+
+  <!-- Herding training for dogs, wolves and wargs. -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="Husky" or defName="LabradorRetriever" or defName="YorkshireTerrier" or defName="Wolf_Timber" or defName="Wolf_Arctic" or defName="Warg"]/race[not(trainableTags)]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="Husky" or defName="LabradorRetriever" or defName="YorkshireTerrier" or defName="Wolf_Timber" or defName="Wolf_Arctic" or defName="Warg"]/race[not(trainableTags)]</xpath>
+      <value>
+        <trainableTags />
+      </value>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Husky" or defName="LabradorRetriever" or defName="YorkshireTerrier" or defName="Wolf_Timber" or defName="Wolf_Arctic" or defName="Warg"]/race/trainableTags</xpath>
+    <value>
+      <li>TTG_Herding</li>
+    </value>
+  </Operation>
+
+</Patch>

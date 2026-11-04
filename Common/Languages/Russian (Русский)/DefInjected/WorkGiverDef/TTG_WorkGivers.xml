@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <TTG_WatchHerd.label>стеречь пасущееся стадо</TTG_WatchHerd.label>
+  <TTG_WatchHerd.verb>стеречь</TTG_WatchHerd.verb>
+  <TTG_WatchHerd.gerund>стережёт</TTG_WatchHerd.gerund>
+  <TTG_LeadToPasture.label>выводить животных на пастбище</TTG_LeadToPasture.label>
+  <TTG_LeadToPasture.verb>вывести</TTG_LeadToPasture.verb>
+  <TTG_LeadToPasture.gerund>выводит</TTG_LeadToPasture.gerund>
+  <TTG_ReturnFromPasture.label>возвращать животных с пастбища</TTG_ReturnFromPasture.label>
+  <TTG_ReturnFromPasture.verb>отвести</TTG_ReturnFromPasture.verb>
+  <TTG_ReturnFromPasture.gerund>отводит</TTG_ReturnFromPasture.gerund>
+</LanguageData>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <TTG_ModName>Time to Graze</TTG_ModName>
+
+  <!-- Zone -->
+  <TTG_PastureZone>Pasture</TTG_PastureZone>
+  <TTG_PastureGroup>pasture</TTG_PastureGroup>
+  <TTG_PastureZoneDesc>Designate a pasture: an open grazing area outside a pen. Link it to a pen in the pen marker's "Grazing" tab, and handlers will lead hungry animals here to graze and bring them back.</TTG_PastureZoneDesc>
+  <TTG_PastureGrass>Grass available: {0}</TTG_PastureGrass>
+  <TTG_PastureLinkedPens>Linked pens: {0}</TTG_PastureLinkedPens>
+  <TTG_PastureNotLinked>Not linked to any pen (use the pen marker's "Grazing" tab).</TTG_PastureNotLinked>
+
+  <!-- Tab -->
+  <TTG_TabGrazing>Grazing</TTG_TabGrazing>
+  <TTG_Enable>Automatic grazing</TTG_Enable>
+  <TTG_EnableDesc>When the start conditions are met, handlers rope the herd, lead it to a linked pasture and bring it back when the return conditions are met.</TTG_EnableDesc>
+  <TTG_Section_Pastures>Pastures</TTG_Section_Pastures>
+  <TTG_NoPastureLinkedHint>No pastures linked. Draw a "Pasture" zone (Zones menu) and link it below.</TTG_NoPastureLinkedHint>
+  <TTG_PastureRow>grass {0} (~{1} days), {2} cells</TTG_PastureRow>
+  <TTG_PastureRowTip>The herd goes to the linked pasture with the most grass, so several pastures rotate and get time to regrow.\n\nDays are estimated for the animals currently in the pen.</TTG_PastureRowTip>
+  <TTG_LinkPasture>Link pasture...</TTG_LinkPasture>
+  <TTG_NoPasturesOnMap>No unlinked pastures on this map</TTG_NoPasturesOnMap>
+
+  <TTG_Section_Start>When to go out</TTG_Section_Start>
+  <TTG_TriggerHunger>An animal is hungry</TTG_TriggerHunger>
+  <TTG_TriggerHungerDesc>Start grazing when any animal in the herd is below the fullness threshold.</TTG_TriggerHungerDesc>
+  <TTG_HungerThreshold>Fullness below {0}</TTG_HungerThreshold>
+  <TTG_TriggerPenFood>Pen food is running out</TTG_TriggerPenFood>
+  <TTG_TriggerPenFoodDesc>Start grazing when grass and stockpiled food in the pen would last fewer days than the threshold.</TTG_TriggerPenFoodDesc>
+  <TTG_PenFoodDays>Less than {0} days of food (now: {1})</TTG_PenFoodDays>
+  <TTG_UseSchedule>Grazing hours</TTG_UseSchedule>
+  <TTG_UseScheduleDesc>Only graze within these hours; the herd is brought back when they end.</TTG_UseScheduleDesc>
+  <TTG_Hours>From {0}:00 to {1}:00</TTG_Hours>
+  <TTG_ScheduleOnlyNote>No start condition selected: the herd goes out once a day during grazing hours.</TTG_ScheduleOnlyNote>
+
+  <TTG_Section_Return>When to come back</TTG_Section_Return>
+  <TTG_ReturnWhenFed>Everyone is fed</TTG_ReturnWhenFed>
+  <TTG_FedThreshold>Fullness at least {0}</TTG_FedThreshold>
+  <TTG_ReturnAtWindowEnd>When grazing hours end.</TTG_ReturnAtWindowEnd>
+  <TTG_ReturnAtNight>At nightfall</TTG_ReturnAtNight>
+  <TTG_ReturnOnDanger>On danger</TTG_ReturnOnDanger>
+  <TTG_ReturnOnDangerDesc>Raids, predators hunting the herd, toxic fallout or haze, and temperatures unsafe for the animals. Also prevents going out in such conditions.</TTG_ReturnOnDangerDesc>
+
+  <TTG_Section_Herd>Herd</TTG_Section_Herd>
+  <TTG_ExcludeSick>Keep sick and injured animals in the pen</TTG_ExcludeSick>
+  <TTG_ExcludePregnant>Keep pregnant animals in the pen</TTG_ExcludePregnant>
+  <TTG_ExcludeYoung>Keep young animals in the pen</TTG_ExcludeYoung>
+  <TTG_ExcludedAnimals>Individual exclusions ({0})...</TTG_ExcludedAnimals>
+  <TTG_NoAnimalsInPen>No animals in the pen</TTG_NoAnimalsInPen>
+
+  <TTG_Section_Guards>Guards</TTG_Section_Guards>
+  <TTG_Shepherd>Shepherd</TTG_Shepherd>
+  <TTG_ShepherdDesc>The shepherd leads the herd out first and then stands watch for the whole grazing (urgent Handling work during work hours). Wandering off and predator attacks become much rarer; better Animals skill is better. The shepherd may chase off predators.</TTG_ShepherdDesc>
+  <TTG_ShepherdOption>{0} (Animals {1})</TTG_ShepherdOption>
+  <TTG_IncapableOfHandling>incapable of handling</TTG_IncapableOfHandling>
+  <TTG_Dog>Herding dog</TTG_Dog>
+  <TTG_DogDesc>An animal trained in "Herding" stays close to the grazing herd, keeps it together and attacks predators that go after it.</TTG_DogDesc>
+  <TTG_NoHerdingDogs>No animals trained in herding</TTG_NoHerdingDogs>
+  <TTG_GuardsHint>Without guards any colonist with Handling work leads the herd, and the herd grazes unattended.</TTG_GuardsHint>
+  <TTG_None>None</TTG_None>
+  <TTG_OnDuty>on duty</TTG_OnDuty>
+  <TTG_OffDuty>away</TTG_OffDuty>
+
+  <!-- Status -->
+  <TTG_InspectPrefix>Grazing</TTG_InspectPrefix>
+  <TTG_Status_Disabled>Automatic grazing is off.</TTG_Status_Disabled>
+  <TTG_Status_Waiting>Waiting for start conditions.</TTG_Status_Waiting>
+  <TTG_Status_Grazing>Out at pasture "{0}".</TTG_Status_Grazing>
+  <TTG_Status_Returning>Coming back: {0}.</TTG_Status_Returning>
+  <TTG_Status_Counts>Waiting to be led out: {0}, grazing: {1}, waiting to return: {2}</TTG_Status_Counts>
+  <TTG_Status_Guards>Shepherd: {0}. Dog: {1}.</TTG_Status_Guards>
+  <TTG_Status_Odds>Wander-off chance ×{0}, predator interest ×{1}</TTG_Status_Odds>
+
+  <!-- Commands -->
+  <TTG_StartNow>Go graze</TTG_StartNow>
+  <TTG_StartNowDesc>Take the herd out to the pasture right now, ignoring start conditions and hours.</TTG_StartNowDesc>
+  <TTG_ReturnNow>Bring herd back</TTG_ReturnNow>
+  <TTG_ReturnNowDesc>Bring the grazing herd back to the pen now.</TTG_ReturnNowDesc>
+  <TTG_NoPastureLinked>No pasture linked to this pen.</TTG_NoPastureLinked>
+
+  <!-- Reasons -->
+  <TTG_Reason_Hostiles>enemies on the map</TTG_Reason_Hostiles>
+  <TTG_Reason_Predator>a predator is hunting the herd</TTG_Reason_Predator>
+  <TTG_Reason_Toxic>toxic weather</TTG_Reason_Toxic>
+  <TTG_Reason_Temperature>unsafe temperature</TTG_Reason_Temperature>
+  <TTG_Reason_PastureGone>the pasture is gone</TTG_Reason_PastureGone>
+  <TTG_Reason_Schedule>grazing hours are over</TTG_Reason_Schedule>
+  <TTG_Reason_Night>night is falling</TTG_Reason_Night>
+  <TTG_Reason_MaxTime>grazed long enough</TTG_Reason_MaxTime>
+  <TTG_Reason_Fed>everyone is fed</TTG_Reason_Fed>
+  <TTG_Reason_NoGrass>the pasture is eaten bare</TTG_Reason_NoGrass>
+  <TTG_Reason_Manual>ordered back</TTG_Reason_Manual>
+
+  <!-- Messages -->
+  <TTG_Msg_Started>Pen "{0}": the herd is going out to pasture "{1}" ({2} animals).</TTG_Msg_Started>
+  <TTG_Msg_Returning>Pen "{0}": bringing the herd back ({1}).</TTG_Msg_Returning>
+  <TTG_Msg_Wandered>{0} wandered off from the herd of pen "{1}".</TTG_Msg_Wandered>
+  <TTG_Msg_PredatorHunting>{0} is hunting {1} from the herd of pen "{2}"!</TTG_Msg_PredatorHunting>
+  <TTG_Msg_DogDefends>{0} rushes at {1} to protect the herd.</TTG_Msg_DogDefends>
+  <TTG_Msg_ShepherdScared>{0} chased {1} away from the herd.</TTG_Msg_ShepherdScared>
+  <TTG_Msg_AlreadyGrazing>The herd is already out.</TTG_Msg_AlreadyGrazing>
+  <TTG_Msg_NoCandidates>No animals in this pen can go grazing.</TTG_Msg_NoCandidates>
+  <TTG_Msg_NoPasture>No reachable linked pasture with grass.</TTG_Msg_NoPasture>
+
+  <!-- Work -->
+  <TTG_ShepherdLeadsFirst>{0} is the shepherd and leads the herd first</TTG_ShepherdLeadsFirst>
+  <TTG_PastureUnreachable>Pasture is unreachable or forbidden</TTG_PastureUnreachable>
+  <TTG_AnimalIsGrazing>Animal is out grazing</TTG_AnimalIsGrazing>
+
+  <!-- Settings -->
+  <TTG_Settings_Roam>Wandering off at the pasture</TTG_Settings_Roam>
+  <TTG_Settings_RoamDesc>Multiplier on the vanilla chance that an animal outside a pen wanders off the map. Shepherd values are for Animals skill 10.</TTG_Settings_RoamDesc>
+  <TTG_Settings_Predators>Predator attacks</TTG_Settings_Predators>
+  <TTG_Settings_PredatorsDesc>Multiplier on the chance that a predator picks a grazing animal as prey.</TTG_Settings_PredatorsDesc>
+  <TTG_Settings_Unguarded>Unguarded</TTG_Settings_Unguarded>
+  <TTG_Settings_Dog>Herding dog</TTG_Settings_Dog>
+  <TTG_Settings_Shepherd>Shepherd</TTG_Settings_Shepherd>
+  <TTG_Settings_Both>Shepherd and dog</TTG_Settings_Both>
+  <TTG_Settings_General>General</TTG_Settings_General>
+  <TTG_Settings_SkillScaling>Shepherd effect scales with Animals skill</TTG_Settings_SkillScaling>
+  <TTG_Settings_SkillScalingDesc>Skill 10 gives the configured values; lower skill is weaker, higher is stronger.</TTG_Settings_SkillScalingDesc>
+  <TTG_Settings_Repel>Guards chase off predators</TTG_Settings_Repel>
+  <TTG_Settings_RepelDesc>A herding dog attacks a predator hunting the herd; a shepherd may scare it away (chance grows with Animals skill).</TTG_Settings_RepelDesc>
+  <TTG_Settings_Thought>Shepherd mood bonus "quiet day at the pasture"</TTG_Settings_Thought>
+  <TTG_Settings_Messages>Messages when the herd goes out and comes back</TTG_Settings_Messages>
+  <TTG_Settings_MinHours>Minimum time at pasture before "everyone is fed" returns the herd: {0} h</TTG_Settings_MinHours>
+  <TTG_Settings_MaxHours>Maximum time at pasture: {0} h</TTG_Settings_MaxHours>
+  <TTG_Settings_Reset>Reset to defaults</TTG_Settings_Reset>
+
+</LanguageData>

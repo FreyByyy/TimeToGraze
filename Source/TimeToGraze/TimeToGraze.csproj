@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- One source tree, two builds: net472 for RimWorld 1.6 (Unity/Mono), net10.0 for RimWorld 1.7 (Waylith). -->
+  <PropertyGroup>
+    <TargetFrameworks>net472;net10.0</TargetFrameworks>
+    <AssemblyName>TimeToGraze</AssemblyName>
+    <RootNamespace>TimeToGraze</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net472'">
+    <OutputPath>..\..\1.6\Assemblies\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\net472\</IntermediateOutputPath>
+    <DefineConstants>$(DefineConstants);RW16</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net10.0'">
+    <OutputPath>..\..\1.7\Assemblies\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\net10.0\</IntermediateOutputPath>
+    <DefineConstants>$(DefineConstants);RW17</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net472'">
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4871" />
+    <PackageReference Include="Lib.Harmony.Ref" Version="2.4.3" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.7.4998-unstable" />
+    <PackageReference Include="Lib.Harmony.Ref" Version="3.0.0-rc.2" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <TTG_ModName>Time to Graze</TTG_ModName>
+
+  <!-- Зона -->
+  <TTG_PastureZone>Пастбище</TTG_PastureZone>
+  <TTG_PastureGroup>пастбища</TTG_PastureGroup>
+  <TTG_PastureZoneDesc>Обозначить пастбище — открытый выгон за пределами загона. Привяжите его к загону во вкладке «Выпас» метки загона, и животноводы будут выводить сюда голодных животных и возвращать их обратно.</TTG_PastureZoneDesc>
+  <TTG_PastureGrass>Доступно травы: {0}</TTG_PastureGrass>
+  <TTG_PastureLinkedPens>Привязано к загонам: {0}</TTG_PastureLinkedPens>
+  <TTG_PastureNotLinked>Не привязано ни к одному загону (вкладка «Выпас» на метке загона).</TTG_PastureNotLinked>
+
+  <!-- Вкладка -->
+  <TTG_TabGrazing>Выпас</TTG_TabGrazing>
+  <TTG_Enable>Автоматический выпас</TTG_Enable>
+  <TTG_EnableDesc>Когда выполнены условия выхода, животноводы берут стадо на верёвки, ведут на привязанное пастбище и возвращают, когда выполнены условия возврата.</TTG_EnableDesc>
+  <TTG_Section_Pastures>Пастбища</TTG_Section_Pastures>
+  <TTG_NoPastureLinkedHint>Пастбища не привязаны. Нарисуйте зону «Пастбище» (меню «Зоны») и привяжите её ниже.</TTG_NoPastureLinkedHint>
+  <TTG_PastureRow>трава {0} (~{1} дн.), {2} клеток</TTG_PastureRow>
+  <TTG_PastureRowTip>Стадо идёт на то привязанное пастбище, где больше всего травы, поэтому несколько пастбищ чередуются и успевают отрасти.\n\nДни посчитаны для животных, которые сейчас в загоне.</TTG_PastureRowTip>
+  <TTG_LinkPasture>Привязать пастбище...</TTG_LinkPasture>
+  <TTG_NoPasturesOnMap>На карте нет непривязанных пастбищ</TTG_NoPasturesOnMap>
+
+  <TTG_Section_Start>Когда выводить</TTG_Section_Start>
+  <TTG_TriggerHunger>Животное проголодалось</TTG_TriggerHunger>
+  <TTG_TriggerHungerDesc>Выводить стадо, когда сытость хотя бы одного животного ниже порога.</TTG_TriggerHungerDesc>
+  <TTG_HungerThreshold>Сытость ниже {0}</TTG_HungerThreshold>
+  <TTG_TriggerPenFood>В загоне кончается корм</TTG_TriggerPenFood>
+  <TTG_TriggerPenFoodDesc>Выводить стадо, когда травы и запасённого корма в загоне хватит меньше чем на указанное число дней.</TTG_TriggerPenFoodDesc>
+  <TTG_PenFoodDays>Корма меньше чем на {0} дн. (сейчас: {1})</TTG_PenFoodDays>
+  <TTG_UseSchedule>Часы выпаса</TTG_UseSchedule>
+  <TTG_UseScheduleDesc>Пасти только в эти часы; по их окончании стадо возвращают.</TTG_UseScheduleDesc>
+  <TTG_Hours>С {0}:00 до {1}:00</TTG_Hours>
+  <TTG_ScheduleOnlyNote>Условия выхода не выбраны: стадо выходит раз в день в часы выпаса.</TTG_ScheduleOnlyNote>
+
+  <TTG_Section_Return>Когда возвращать</TTG_Section_Return>
+  <TTG_ReturnWhenFed>Все наелись</TTG_ReturnWhenFed>
+  <TTG_FedThreshold>Сытость не ниже {0}</TTG_FedThreshold>
+  <TTG_ReturnAtWindowEnd>По окончании часов выпаса.</TTG_ReturnAtWindowEnd>
+  <TTG_ReturnAtNight>С наступлением темноты</TTG_ReturnAtNight>
+  <TTG_ReturnOnDanger>При опасности</TTG_ReturnOnDanger>
+  <TTG_ReturnOnDangerDesc>Рейды, хищник охотится на стадо, токсичные осадки или дымка, опасная для животных температура. Также не даёт выводить стадо в таких условиях.</TTG_ReturnOnDangerDesc>
+
+  <TTG_Section_Herd>Стадо</TTG_Section_Herd>
+  <TTG_ExcludeSick>Оставлять в загоне больных и раненых</TTG_ExcludeSick>
+  <TTG_ExcludePregnant>Оставлять в загоне беременных</TTG_ExcludePregnant>
+  <TTG_ExcludeYoung>Оставлять в загоне молодняк</TTG_ExcludeYoung>
+  <TTG_ExcludedAnimals>Исключения поштучно ({0})...</TTG_ExcludedAnimals>
+  <TTG_NoAnimalsInPen>В загоне нет животных</TTG_NoAnimalsInPen>
+
+  <TTG_Section_Guards>Охрана</TTG_Section_Guards>
+  <TTG_Shepherd>Пастух</TTG_Shepherd>
+  <TTG_ShepherdDesc>Пастух первым выводит стадо и стережёт его весь выпас (срочная работа «Уход за животными» в рабочие часы). Животные гораздо реже разбредаются, хищники реже нападают; чем выше навык «Животные», тем лучше. Пастух может отогнать хищника.</TTG_ShepherdDesc>
+  <TTG_ShepherdOption>{0} (Животные {1})</TTG_ShepherdOption>
+  <TTG_IncapableOfHandling>не может ухаживать за животными</TTG_IncapableOfHandling>
+  <TTG_Dog>Пастушья собака</TTG_Dog>
+  <TTG_DogDesc>Животное с дрессировкой «Пастьба» держится рядом с пасущимся стадом, не даёт ему разбредаться и бросается на хищников, которые на него охотятся.</TTG_DogDesc>
+  <TTG_NoHerdingDogs>Нет животных с дрессировкой «Пастьба»</TTG_NoHerdingDogs>
+  <TTG_GuardsHint>Без охраны стадо выводит любой колонист с работой «Уход за животными», и пасётся оно без присмотра.</TTG_GuardsHint>
+  <TTG_None>Нет</TTG_None>
+  <TTG_OnDuty>на посту</TTG_OnDuty>
+  <TTG_OffDuty>отошёл</TTG_OffDuty>
+
+  <!-- Статус -->
+  <TTG_InspectPrefix>Выпас</TTG_InspectPrefix>
+  <TTG_Status_Disabled>Автоматический выпас выключен.</TTG_Status_Disabled>
+  <TTG_Status_Waiting>Ожидание условий выхода.</TTG_Status_Waiting>
+  <TTG_Status_Grazing>Стадо на пастбище «{0}».</TTG_Status_Grazing>
+  <TTG_Status_Returning>Возвращение: {0}.</TTG_Status_Returning>
+  <TTG_Status_Counts>Ждут вывода: {0}, пасутся: {1}, ждут возврата: {2}</TTG_Status_Counts>
+  <TTG_Status_Guards>Пастух: {0}. Собака: {1}.</TTG_Status_Guards>
+  <TTG_Status_Odds>Шанс разбрестись ×{0}, интерес хищников ×{1}</TTG_Status_Odds>
+
+  <!-- Команды -->
+  <TTG_StartNow>На выпас</TTG_StartNow>
+  <TTG_StartNowDesc>Вывести стадо на пастбище прямо сейчас, не дожидаясь условий и часов выпаса.</TTG_StartNowDesc>
+  <TTG_ReturnNow>Вернуть стадо</TTG_ReturnNow>
+  <TTG_ReturnNowDesc>Вернуть пасущееся стадо в загон сейчас.</TTG_ReturnNowDesc>
+  <TTG_NoPastureLinked>К этому загону не привязано пастбище.</TTG_NoPastureLinked>
+
+  <!-- Причины -->
+  <TTG_Reason_Hostiles>на карте враги</TTG_Reason_Hostiles>
+  <TTG_Reason_Predator>хищник охотится на стадо</TTG_Reason_Predator>
+  <TTG_Reason_Toxic>токсичная погода</TTG_Reason_Toxic>
+  <TTG_Reason_Temperature>опасная температура</TTG_Reason_Temperature>
+  <TTG_Reason_PastureGone>пастбище исчезло</TTG_Reason_PastureGone>
+  <TTG_Reason_Schedule>часы выпаса закончились</TTG_Reason_Schedule>
+  <TTG_Reason_Night>темнеет</TTG_Reason_Night>
+  <TTG_Reason_MaxTime>паслись достаточно долго</TTG_Reason_MaxTime>
+  <TTG_Reason_Fed>все наелись</TTG_Reason_Fed>
+  <TTG_Reason_NoGrass>пастбище выедено</TTG_Reason_NoGrass>
+  <TTG_Reason_Manual>приказ вернуться</TTG_Reason_Manual>
+
+  <!-- Сообщения -->
+  <TTG_Msg_Started>Загон «{0}»: стадо выходит на пастбище «{1}» ({2} голов).</TTG_Msg_Started>
+  <TTG_Msg_Returning>Загон «{0}»: стадо возвращают ({1}).</TTG_Msg_Returning>
+  <TTG_Msg_Wandered>{0} отбивается от стада загона «{1}» и уходит.</TTG_Msg_Wandered>
+  <TTG_Msg_PredatorHunting>{0} охотится на {1} из стада загона «{2}»!</TTG_Msg_PredatorHunting>
+  <TTG_Msg_DogDefends>{0} бросается на {1}, защищая стадо.</TTG_Msg_DogDefends>
+  <TTG_Msg_ShepherdScared>{0} отгоняет {1} от стада.</TTG_Msg_ShepherdScared>
+  <TTG_Msg_AlreadyGrazing>Стадо уже на выпасе.</TTG_Msg_AlreadyGrazing>
+  <TTG_Msg_NoCandidates>В этом загоне нет животных, которых можно вывести на выпас.</TTG_Msg_NoCandidates>
+  <TTG_Msg_NoPasture>Нет доступного привязанного пастбища с травой.</TTG_Msg_NoPasture>
+
+  <!-- Работа -->
+  <TTG_ShepherdLeadsFirst>{0} — пастух и выводит стадо первым</TTG_ShepherdLeadsFirst>
+  <TTG_PastureUnreachable>Пастбище недоступно или запрещено</TTG_PastureUnreachable>
+  <TTG_AnimalIsGrazing>Животное на выпасе</TTG_AnimalIsGrazing>
+
+  <!-- Настройки -->
+  <TTG_Settings_Roam>Разбредание на пастбище</TTG_Settings_Roam>
+  <TTG_Settings_RoamDesc>Множитель к ванильному шансу, что животное вне загона уйдёт с карты. Значения для пастуха указаны для навыка «Животные» 10.</TTG_Settings_RoamDesc>
+  <TTG_Settings_Predators>Нападения хищников</TTG_Settings_Predators>
+  <TTG_Settings_PredatorsDesc>Множитель к шансу, что хищник выберет пасущееся животное добычей.</TTG_Settings_PredatorsDesc>
+  <TTG_Settings_Unguarded>Без охраны</TTG_Settings_Unguarded>
+  <TTG_Settings_Dog>Пастушья собака</TTG_Settings_Dog>
+  <TTG_Settings_Shepherd>Пастух</TTG_Settings_Shepherd>
+  <TTG_Settings_Both>Пастух и собака</TTG_Settings_Both>
+  <TTG_Settings_General>Общие</TTG_Settings_General>
+  <TTG_Settings_SkillScaling>Эффект пастуха зависит от навыка «Животные»</TTG_Settings_SkillScaling>
+  <TTG_Settings_SkillScalingDesc>Навык 10 даёт значения из настроек; ниже — слабее, выше — сильнее.</TTG_Settings_SkillScalingDesc>
+  <TTG_Settings_Repel>Охрана отгоняет хищников</TTG_Settings_Repel>
+  <TTG_Settings_RepelDesc>Пастушья собака атакует хищника, охотящегося на стадо; пастух может его спугнуть (шанс растёт с навыком «Животные»).</TTG_Settings_RepelDesc>
+  <TTG_Settings_Thought>Настроение пастуха «спокойный день на пастбище»</TTG_Settings_Thought>
+  <TTG_Settings_Messages>Сообщения о выходе и возвращении стада</TTG_Settings_Messages>
+  <TTG_Settings_MinHours>Минимум на пастбище, прежде чем «все наелись» вернёт стадо: {0} ч</TTG_Settings_MinHours>
+  <TTG_Settings_MaxHours>Максимум на пастбище: {0} ч</TTG_Settings_MaxHours>
+  <TTG_Settings_Reset>Сбросить по умолчанию</TTG_Settings_Reset>
+
+</LanguageData>

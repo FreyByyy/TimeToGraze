@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ============ Jobs ============ -->
+
+  <JobDef>
+    <defName>TTG_RopeToPasture</defName>
+    <driverClass>TimeToGraze.JobDriver_RopeToPasture</driverClass>
+    <reportString>leading TargetA to the pasture.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JobDef>
+    <defName>TTG_WatchHerd</defName>
+    <driverClass>TimeToGraze.JobDriver_WatchHerd</driverClass>
+    <reportString>watching over the herd.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+  </JobDef>
+
+  <JobDef>
+    <defName>TTG_GuardHerd</defName>
+    <driverClass>TimeToGraze.JobDriver_GuardHerd</driverClass>
+    <reportString>guarding the herd.</reportString>
+    <casualInterruptible>true</casualInterruptible>
+  </JobDef>
+
+  <!-- ============ Work (Handling) ============ -->
+
+  <WorkGiverDef>
+    <defName>TTG_WatchHerd</defName>
+    <label>watch over grazing herd</label>
+    <giverClass>TimeToGraze.WorkGiver_WatchHerd</giverClass>
+    <workType>Handling</workType>
+    <verb>watch over</verb>
+    <gerund>watching over</gerund>
+    <priorityInType>200</priorityInType>
+    <emergency>true</emergency>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>TTG_LeadToPasture</defName>
+    <label>lead animals to pasture</label>
+    <giverClass>TimeToGraze.WorkGiver_LeadToPasture</giverClass>
+    <workType>Handling</workType>
+    <verb>lead</verb>
+    <gerund>leading</gerund>
+    <priorityInType>145</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>TTG_ReturnFromPasture</defName>
+    <label>bring animals back from pasture</label>
+    <giverClass>TimeToGraze.WorkGiver_ReturnFromPasture</giverClass>
+    <workType>Handling</workType>
+    <verb>rope</verb>
+    <gerund>roping</gerund>
+    <priorityInType>155</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <!-- ============ Training ============ -->
+
+  <!-- Opt-in per race: add <li>TTG_Herding</li> to race/trainableTags. -->
+  <TrainableDef>
+    <defName>TTG_Herding</defName>
+    <label>herding</label>
+    <description>The animal can be assigned to a pen as a herding dog. While the herd grazes it stays close, keeps animals from wandering off and chases away predators.</description>
+    <icon>UI/Icons/Trainables/TTG_Herding</icon>
+    <listPriority>700</listPriority>
+    <difficulty>200</difficulty>
+    <requiredTrainability>Intermediate</requiredTrainability>
+    <steps>3</steps>
+    <prerequisites>
+      <li>Obedience</li>
+    </prerequisites>
+    <defaultTrainable>false</defaultTrainable>
+    <tags>
+      <li>TTG_Herding</li>
+    </tags>
+  </TrainableDef>
+
+  <!-- ============ Mood ============ -->
+
+  <ThoughtDef>
+    <defName>TTG_PeacefulGrazing</defName>
+    <durationDays>1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>quiet day at the pasture</label>
+        <description>I spent hours out in the open watching the herd graze. Peaceful.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+      <li>
+        <label>quiet day at the pasture</label>
+        <description>A whole shift with the herd under the open sky. This is what I love doing.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <!-- ============ Animal behaviour ============ -->
+
+  <ThinkTreeDef>
+    <defName>TTG_GrazeAtPasture</defName>
+    <insertTag>Animal_PreWander</insertTag>
+    <insertPriority>110</insertPriority>
+    <thinkRoot Class="ThinkNode_ConditionalOfPlayerFaction">
+      <subNodes>
+        <li Class="TimeToGraze.JobGiver_GrazeAtPasture" />
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+
+  <!-- ============ Herding dog behaviour ============ -->
+
+  <ThinkTreeDef>
+    <defName>TTG_HerdingDog</defName>
+    <insertTag>Animal_PreWander</insertTag>
+    <insertPriority>100</insertPriority>
+    <thinkRoot Class="ThinkNode_ConditionalOfPlayerFaction">
+      <subNodes>
+        <li Class="TimeToGraze.JobGiver_GuardHerd" />
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+
+</Defs>
