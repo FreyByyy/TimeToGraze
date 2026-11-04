@@ -5,12 +5,57 @@ using Verse.AI;
 
 namespace TimeToGraze;
 
-// Ropes a group of animals in the pen and leads them to the session's pasture.
-public class JobDriver_RopeToPasture : JobDriver_RopeToDestination
+// Rope jobs that take the whole herd at once. Vanilla caps a roper at 10 animals within 10 cells;
+// Patch_RopeToDestination_FindAnotherAnimalToRope routes these drivers here instead.
+public interface IHerdRoper
 {
-    private const float DistantAnimalSearchRadius = 30f;
+    bool TryTargetNextHerdAnimal();
+}
 
+public static class HerdRopingUtility
+{
+    // Closest reachable animal of the pen's session in the given phase, with no count or distance cap.
+    public static bool TryTargetNext(JobDriver driver, CompGrazing comp, GrazePhase phase)
+    {
+        if (comp == null)
+        {
+            return false;
+        }
+        Pawn roper = driver.pawn;
+        Pawn best = null;
+        int bestDist = int.MaxValue;
+        foreach (GrazeEntry entry in comp.Entries)
+        {
+            Pawn animal = entry.animal;
+            if (entry.phase != phase || animal == roper || !animal.Spawned || animal.roping.IsRoped || animal.Downed || !roper.CanReserve(animal))
+            {
+                continue;
+            }
+            int dist = animal.Position.DistanceToSquared(roper.Position);
+            if (dist < bestDist && roper.CanReach(animal, PathEndMode.Touch, Danger.Deadly))
+            {
+                best = animal;
+                bestDist = dist;
+            }
+        }
+        if (best == null)
+        {
+            return false;
+        }
+        driver.job.SetTarget(TargetIndex.A, best);
+        return true;
+    }
+}
+
+// Ropes the herd in the pen and leads it to the session's pasture.
+public class JobDriver_RopeToPasture : JobDriver_RopeToDestination, IHerdRoper
+{
     private CompGrazing Comp => job.targetC.Thing?.TryGetComp<CompGrazing>();
+
+    public bool TryTargetNextHerdAnimal()
+    {
+        return HerdRopingUtility.TryTargetNext(this, Comp, GrazePhase.ToPasture);
+    }
 
     protected override IEnumerable<Toil> MakeNewToils()
     {
@@ -38,31 +83,16 @@ public class JobDriver_RopeToPasture : JobDriver_RopeToDestination
         }
         return GrazingRegistry.TryGet(animal, out GrazeEntry entry, out CompGrazing comp) && comp == Comp && entry.phase == GrazePhase.ToPasture && pawn.CanReserve(animal);
     }
+}
 
-    protected override Thing FindDistantAnimalToRope()
+// Vanilla rope-to-pen, but gathers every animal of the session that is waiting to come home.
+public class JobDriver_RopeHerdToPen : JobDriver_RopeToPen, IHerdRoper
+{
+    private CompGrazing Comp => job.targetC.Thing?.TryGetComp<CompGrazing>();
+
+    public bool TryTargetNextHerdAnimal()
     {
-        CompGrazing comp = Comp;
-        if (comp == null)
-        {
-            return null;
-        }
-        Pawn best = null;
-        float bestDist = DistantAnimalSearchRadius * DistantAnimalSearchRadius;
-        foreach (GrazeEntry entry in comp.Entries)
-        {
-            Pawn animal = entry.animal;
-            if (entry.phase != GrazePhase.ToPasture || !ShouldOpportunisticallyRopeAnimal(animal))
-            {
-                continue;
-            }
-            float dist = animal.Position.DistanceToSquared(pawn.Position);
-            if (dist < bestDist && pawn.CanReach(animal, PathEndMode.Touch, Danger.Deadly))
-            {
-                best = animal;
-                bestDist = dist;
-            }
-        }
-        return best;
+        return HerdRopingUtility.TryTargetNext(this, Comp, GrazePhase.ToPen);
     }
 }
 

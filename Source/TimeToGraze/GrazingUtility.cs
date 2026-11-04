@@ -116,12 +116,9 @@ public static class GrazingUtility
     }
 
     // Returns a translated reason when it is unsafe to keep (or take) the herd at the pasture.
+    // Enemies on the map are not here: the player is asked instead (see CompGrazing).
     public static string DangerReason(Map map, CompGrazing comp, IEnumerable<Pawn> herd, Zone_Pasture pasture)
     {
-        if (GenHostility.AnyHostileActiveThreatToPlayer(map))
-        {
-            return "TTG_Reason_Hostiles".Translate();
-        }
         if (PredatorsHuntingHerd(map, comp).Count > 0)
         {
             return "TTG_Reason_Predator".Translate();

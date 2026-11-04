@@ -40,7 +40,7 @@
   <TTG_ReturnAtWindowEnd>По окончании часов выпаса.</TTG_ReturnAtWindowEnd>
   <TTG_ReturnAtNight>С наступлением темноты</TTG_ReturnAtNight>
   <TTG_ReturnOnDanger>При опасности</TTG_ReturnOnDanger>
-  <TTG_ReturnOnDangerDesc>Рейды, хищник охотится на стадо, токсичные осадки или дымка, опасная для животных температура. Также не даёт выводить стадо в таких условиях.</TTG_ReturnOnDangerDesc>
+  <TTG_ReturnOnDangerDesc>Хищник охотится на стадо, токсичные осадки или дымка, опасная для животных температура — стадо возвращают и не выводят. Если на карте враги, игра спросит, вернуть стадо или всё равно вывести.</TTG_ReturnOnDangerDesc>
 
   <TTG_Section_Herd>Стадо</TTG_Section_Herd>
   <TTG_ExcludeSick>Оставлять в загоне больных и раненых</TTG_ExcludeSick>
@@ -91,6 +91,16 @@
   <TTG_Reason_Fed>все наелись</TTG_Reason_Fed>
   <TTG_Reason_NoGrass>пастбище выедено</TTG_Reason_NoGrass>
   <TTG_Reason_Manual>приказ вернуться</TTG_Reason_Manual>
+
+  <!-- Враги на карте -->
+  <TTG_Hostiles_Title>Враги на карте</TTG_Hostiles_Title>
+  <TTG_Hostiles_DuringGrazing>На карте враги, а стадо загона «{0}» пасётся на пастбище «{1}».\n\nВернуть стадо в загон?</TTG_Hostiles_DuringGrazing>
+  <TTG_Hostiles_BeforeStart>Стадо загона «{0}» пора выводить на выпас, но на карте враги.\n\nВсё равно вывести?</TTG_Hostiles_BeforeStart>
+  <TTG_Hostiles_ConfirmManual>На карте враги. Всё равно вывести стадо загона «{0}» на выпас?</TTG_Hostiles_ConfirmManual>
+  <TTG_Hostiles_Return>Вернуть стадо</TTG_Hostiles_Return>
+  <TTG_Hostiles_KeepGrazing>Пусть пасётся</TTG_Hostiles_KeepGrazing>
+  <TTG_Hostiles_GoOut>Вывести</TTG_Hostiles_GoOut>
+  <TTG_Hostiles_Wait>Подождать</TTG_Hostiles_Wait>
 
   <!-- Сообщения -->
   <TTG_Msg_Started>Загон «{0}»: стадо выходит на пастбище «{1}» ({2} голов).</TTG_Msg_Started>

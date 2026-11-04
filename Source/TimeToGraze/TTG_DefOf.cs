@@ -8,6 +8,8 @@ public static class TTG_DefOf
 {
     public static JobDef TTG_RopeToPasture;
 
+    public static JobDef TTG_RopeHerdToPen;
+
     public static JobDef TTG_WatchHerd;
 
     public static JobDef TTG_GuardHerd;

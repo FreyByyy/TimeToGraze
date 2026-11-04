@@ -3,3 +3,4 @@ Source/**/obj/
 .vs/
 .idea/
 *.user
+DESIGN.md

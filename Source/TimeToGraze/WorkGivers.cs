@@ -117,11 +117,15 @@ public class WorkGiver_ReturnFromPasture : WorkGiver_GrazingAnimals
             // Let vanilla roping pick any suitable pen instead.
             return null;
         }
-        Job job = WorkGiver_TakeToPen.MakeJob(pawn, animal, marker, allowUnenclosedPens: false, RopingPriority.Closest, out string reason);
-        if (job == null && reason != null)
+        IntVec3 standCell = AnimalPenUtility.FindPlaceInPenToStand(marker, pawn);
+        if (!standCell.IsValid)
         {
-            JobFailReason.Is(reason);
+            JobFailReason.Is("CantRopeAnimalNoSpace".Translate());
+            return null;
         }
+        Job job = JobMaker.MakeJob(TTG_DefOf.TTG_RopeHerdToPen, animal, standCell, marker.parent);
+        job.ropingPriority = RopingPriority.Closest;
+        job.ropeToUnenclosedPens = false;
         return job;
     }
 }

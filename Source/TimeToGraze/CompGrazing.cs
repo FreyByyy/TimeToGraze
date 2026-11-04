@@ -88,6 +88,12 @@ public class CompGrazing : ThingComp
 
     private int dogSeenTick = -99999;
 
+    private bool hostilesPresent;
+
+    private bool hostileDialogShown;
+
+    private bool holdForHostiles;
+
     private readonly Dictionary<int, int> announcedPredators = new Dictionary<int, int>();
 
     private readonly Dictionary<int, int> scaredPredators = new Dictionary<int, int>();
@@ -158,14 +164,58 @@ public class CompGrazing : ThingComp
             return;
         }
         ValidateConfig();
+        UpdateHostileState();
         if (SessionActive)
         {
             UpdateSession();
+            if (SessionActive)
+            {
+                AskAboutHostilesDuringSession();
+            }
         }
         else if (enabled && Now - lastEndTick > RestartCooldownTicks)
         {
             TryAutoStart();
         }
+    }
+
+    // ================= Enemies on the map: ask the player instead of forbidding =================
+
+    private void UpdateHostileState()
+    {
+        hostilesPresent = GenHostility.AnyHostileActiveThreatToPlayer(Map);
+        if (!hostilesPresent)
+        {
+            hostileDialogShown = false;
+            holdForHostiles = false;
+        }
+    }
+
+    private void AskAboutHostilesDuringSession()
+    {
+        if (!returnOnDanger || !hostilesPresent || returning || hostileDialogShown)
+        {
+            return;
+        }
+        hostileDialogShown = true;
+        string text = "TTG_Hostiles_DuringGrazing".Translate(PenLabel, activePasture?.label ?? "?");
+        Find.WindowStack.Add(new Dialog_MessageBox(text, "TTG_Hostiles_Return".Translate(), () => BeginReturn("TTG_Reason_Hostiles".Translate()), "TTG_Hostiles_KeepGrazing".Translate(), null, "TTG_Hostiles_Title".Translate()));
+    }
+
+    // Auto start with enemies around: one question per enemy episode; "wait" holds until they are gone.
+    private bool HoldAutoStartForHostiles()
+    {
+        if (!returnOnDanger || !hostilesPresent)
+        {
+            return false;
+        }
+        if (!holdForHostiles && !hostileDialogShown)
+        {
+            hostileDialogShown = true;
+            string text = "TTG_Hostiles_BeforeStart".Translate(PenLabel);
+            Find.WindowStack.Add(new Dialog_MessageBox(text, "TTG_Hostiles_GoOut".Translate(), () => StartNow(silentReject: true), "TTG_Hostiles_Wait".Translate(), () => holdForHostiles = true, "TTG_Hostiles_Title".Translate()));
+        }
+        return true;
     }
 
     private void ValidateConfig()
@@ -222,6 +272,10 @@ public class CompGrazing : ThingComp
             return;
         }
         if (returnOnDanger && GrazingUtility.DangerReason(Map, this, candidates, pasture) != null)
+        {
+            return;
+        }
+        if (HoldAutoStartForHostiles())
         {
             return;
         }
@@ -534,9 +588,22 @@ public class CompGrazing : ThingComp
 
     public void ManualStart()
     {
+        if (GenHostility.AnyHostileActiveThreatToPlayer(Map))
+        {
+            Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("TTG_Hostiles_ConfirmManual".Translate(PenLabel), () => StartNow(silentReject: false), destructive: true));
+            return;
+        }
+        StartNow(silentReject: false);
+    }
+
+    private void StartNow(bool silentReject)
+    {
         if (SessionActive)
         {
-            Messages.Message("TTG_Msg_AlreadyGrazing".Translate(), parent, MessageTypeDefOf.RejectInput, historical: false);
+            if (!silentReject)
+            {
+                Messages.Message("TTG_Msg_AlreadyGrazing".Translate(), parent, MessageTypeDefOf.RejectInput, historical: false);
+            }
             return;
         }
         List<Pawn> candidates = GetCandidates();
@@ -551,6 +618,8 @@ public class CompGrazing : ThingComp
             Messages.Message("TTG_Msg_NoPasture".Translate(), parent, MessageTypeDefOf.RejectInput, historical: false);
             return;
         }
+        // The player has already accepted the risk for this enemy episode.
+        hostileDialogShown = hostilesPresent || hostileDialogShown;
         StartSession(pasture, candidates);
     }
 
@@ -642,7 +711,19 @@ public class CompGrazing : ThingComp
 
     private static bool IsSickOrHurt(Pawn animal)
     {
-        return animal.health.HasHediffsNeedingTend() || animal.health.hediffSet.BleedRateTotal > 0f || animal.health.summaryHealth.SummaryHealthPercent < 0.85f || animal.health.hediffSet.AnyHediffMakesSickThought;
+        if (animal.health.HasHediffsNeedingTend() || animal.health.hediffSet.BleedRateTotal > 0f || animal.health.summaryHealth.SummaryHealthPercent < 0.85f)
+        {
+            return true;
+        }
+        // Malnutrition is why the herd goes out in the first place, never a reason to keep it in.
+        foreach (Hediff hediff in animal.health.hediffSet.hediffs)
+        {
+            if (hediff.def.makesSickThought && hediff.def != HediffDefOf.Malnutrition && hediff.Visible)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public float PenFoodDays()

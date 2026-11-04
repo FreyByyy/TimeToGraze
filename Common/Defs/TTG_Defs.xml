@@ -12,6 +12,14 @@
   </JobDef>
 
   <JobDef>
+    <defName>TTG_RopeHerdToPen</defName>
+    <driverClass>TimeToGraze.JobDriver_RopeHerdToPen</driverClass>
+    <reportString>leading TargetA to TargetC.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JobDef>
     <defName>TTG_WatchHerd</defName>
     <driverClass>TimeToGraze.JobDriver_WatchHerd</driverClass>
     <reportString>watching over the herd.</reportString>

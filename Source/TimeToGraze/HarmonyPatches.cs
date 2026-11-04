@@ -112,6 +112,21 @@ public static class Patch_IsAcceptablePreyFor
     }
 }
 
+// Our herd rope jobs take every waiting animal, not vanilla's 10 within 10 cells.
+[HarmonyPatch(typeof(JobDriver_RopeToDestination), "FindAnotherAnimalToRope")]
+public static class Patch_RopeToDestination_FindAnotherAnimalToRope
+{
+    public static bool Prefix(JobDriver_RopeToDestination __instance, ref bool __result)
+    {
+        if (__instance is not IHerdRoper herdRoper)
+        {
+            return true;
+        }
+        __result = herdRoper.TryTargetNextHerdAnimal();
+        return false;
+    }
+}
+
 // Pasture areas are runtime-only (rebuilt from the zone on load), so saves stay loadable without the mod.
 [HarmonyPatch(typeof(AreaManager), nameof(AreaManager.ExposeData))]
 public static class Patch_AreaManager_ExposeData

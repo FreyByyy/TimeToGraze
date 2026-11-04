@@ -40,7 +40,7 @@
   <TTG_ReturnAtWindowEnd>When grazing hours end.</TTG_ReturnAtWindowEnd>
   <TTG_ReturnAtNight>At nightfall</TTG_ReturnAtNight>
   <TTG_ReturnOnDanger>On danger</TTG_ReturnOnDanger>
-  <TTG_ReturnOnDangerDesc>Raids, predators hunting the herd, toxic fallout or haze, and temperatures unsafe for the animals. Also prevents going out in such conditions.</TTG_ReturnOnDangerDesc>
+  <TTG_ReturnOnDangerDesc>Predators hunting the herd, toxic fallout or haze, and temperatures unsafe for the animals bring the herd back and keep it in. When enemies are on the map you are asked whether to bring the herd back (or still take it out).</TTG_ReturnOnDangerDesc>
 
   <TTG_Section_Herd>Herd</TTG_Section_Herd>
   <TTG_ExcludeSick>Keep sick and injured animals in the pen</TTG_ExcludeSick>
@@ -91,6 +91,16 @@
   <TTG_Reason_Fed>everyone is fed</TTG_Reason_Fed>
   <TTG_Reason_NoGrass>the pasture is eaten bare</TTG_Reason_NoGrass>
   <TTG_Reason_Manual>ordered back</TTG_Reason_Manual>
+
+  <!-- Enemies on the map -->
+  <TTG_Hostiles_Title>Enemies on the map</TTG_Hostiles_Title>
+  <TTG_Hostiles_DuringGrazing>There are enemies on the map, and the herd of pen "{0}" is out at pasture "{1}".\n\nBring the herd back to the pen?</TTG_Hostiles_DuringGrazing>
+  <TTG_Hostiles_BeforeStart>It is time to take the herd of pen "{0}" out to graze, but there are enemies on the map.\n\nTake the herd out anyway?</TTG_Hostiles_BeforeStart>
+  <TTG_Hostiles_ConfirmManual>There are enemies on the map. Take the herd of pen "{0}" out to graze anyway?</TTG_Hostiles_ConfirmManual>
+  <TTG_Hostiles_Return>Bring herd back</TTG_Hostiles_Return>
+  <TTG_Hostiles_KeepGrazing>Keep grazing</TTG_Hostiles_KeepGrazing>
+  <TTG_Hostiles_GoOut>Take them out</TTG_Hostiles_GoOut>
+  <TTG_Hostiles_Wait>Wait</TTG_Hostiles_Wait>
 
   <!-- Messages -->
   <TTG_Msg_Started>Pen "{0}": the herd is going out to pasture "{1}" ({2} animals).</TTG_Msg_Started>
