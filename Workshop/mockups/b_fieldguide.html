@@ -1,0 +1,94 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Variant B — Field guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Variant B: dark Steam-friendly page with clean light cards and stat bars (catalogue look). */
+  :root { --bg:#1b2838; --panel:#8b95a1; --card:#eef2f6; --accent:#5aa646; --accent-d:#3d7a2e; --ink:#24324a; --bar:#f0a23b; }
+  * { box-sizing:border-box; margin:0; }
+  body { width:640px; background:var(--bg); font-family:Rubik, "Segoe UI", sans-serif; color:var(--ink); }
+  section { width:640px; padding:14px; }
+  .banner { height:64px; background:var(--accent); display:flex; align-items:center; justify-content:space-between; padding:0 16px; box-shadow:inset 0 -6px 0 var(--accent-d); }
+  .banner h1 { color:#fff; font-weight:800; font-size:34px; text-transform:uppercase; letter-spacing:.02em; border-bottom:4px solid #fff; line-height:1.1; }
+  .banner span { color:#e9ffe0; font-weight:700; font-size:14px; }
+  .banner img { width:44px; height:44px; }
+  .frame { background:var(--panel); border-radius:28px; padding:22px; }
+  .grid { display:grid; grid-template-columns:1.55fr 1fr; gap:10px; }
+  .card { background:var(--card); border-radius:10px; overflow:hidden; }
+  .card h2 { text-align:center; color:var(--accent-d); font-weight:800; font-size:24px; text-transform:uppercase; padding:10px 8px 6px; }
+  .strip { background:var(--accent); color:#fff; text-align:center; font-weight:700; font-size:13px; text-transform:uppercase; padding:5px; letter-spacing:.06em; }
+  .art { display:block; width:100%; height:190px; object-fit:cover; }
+  .body { font-size:13.5px; line-height:1.4; padding:10px 14px 14px; text-align:center; color:#2b4b6f; font-weight:500; }
+  .side h3 { text-align:center; color:var(--accent-d); font-weight:800; font-size:16px; text-transform:uppercase; padding:10px 6px; }
+  .side .row { display:flex; gap:10px; align-items:center; padding:8px 12px; font-weight:700; font-size:13px; color:#2b4b6f; }
+  .side img { width:46px; height:46px; border-radius:10px; background:var(--accent); padding:4px; }
+  ul { padding:4px 16px 14px 30px; font-size:13px; line-height:1.55; font-weight:500; color:#2b4b6f; }
+  .odds-row { display:grid; grid-template-columns:78px 1fr 36px; align-items:center; gap:6px; font-weight:700; font-size:12px; padding:3px 12px; color:#2b4b6f; }
+  .odds-track { height:14px; border-radius:999px; background:#7a3a12; overflow:hidden; display:block; box-shadow:inset 0 0 0 2px #5a2a0c; }
+  .odds-fill { display:block; height:100%; background:var(--bar); border-radius:999px; }
+  .side { padding-bottom:8px; }
+  .side h4 { color:var(--accent-d); font-weight:800; font-size:13px; text-transform:uppercase; padding:8px 14px 0; letter-spacing:.04em; }
+  .side ul.tight { padding:2px 12px 6px 28px; line-height:1.4; }
+  .btn { display:flex; gap:10px; align-items:center; margin:8px 12px; background:#fff; border-radius:10px; padding:8px; box-shadow:0 2px 0 #c9d2dc; }
+  .btn img { width:58px; height:58px; background:#2c3a4f; border-radius:8px; padding:3px; }
+  .btn b { display:block; color:var(--accent-d); font-size:14px; }
+  .btn span { font-size:12px; color:#2b4b6f; font-weight:500; }
+  .kv { display:flex; justify-content:space-between; gap:8px; padding:9px 12px; border-bottom:2px solid #dde4ec; font-size:12.5px; font-weight:700; color:#2b4b6f; }
+  .kv-v { color:var(--accent-d); text-align:right; white-space:nowrap; }
+  .kv-hl { background:#fff4dd; }
+  .kv-hl .kv-v { color:#c0701a; }
+  .compat { background:var(--card); border-radius:10px; overflow:hidden; }
+  .compat .kv { font-size:15px; padding:12px 18px; }
+  .zone-big { display:block; width:96px; height:96px; margin:18px auto 6px; }
+</style></head>
+<body>
+<section data-card="header">
+  <div class="banner"><div><h1 data-t="contents"></h1></div><span data-t="tagline"></span><img data-art="zoneIcon"></div>
+</section>
+
+<section data-card="pasture">
+  <div class="frame"><div class="grid">
+    <div class="card"><h2 data-t="pastureTitle"></h2><div class="strip" data-t="pastureKicker"></div><img class="art" data-art="lead"><p class="body" data-t="pastureBody"></p></div>
+    <div class="card side"><h3 data-t="pastureKicker"></h3><img class="zone-big" data-art="zoneIcon"><ul data-list="pastureBullets"></ul></div>
+  </div></div>
+</section>
+
+<section data-card="tab">
+  <div class="frame"><div class="grid">
+    <div class="card"><h2 data-t="tabTitle"></h2><div class="strip" data-t="tabKicker"></div><img class="art" data-art="home"><p class="body" data-t="tabBody"></p></div>
+    <div class="card side"><h3 data-t="tabTitle"></h3>
+      <h4 data-t="tabOut"></h4><ul class="tight" data-list="tabOutList"></ul>
+      <h4 data-t="tabBack"></h4><ul class="tight" data-list="tabBackList"></ul>
+      <h4 data-t="tabHerd"></h4><ul class="tight" data-list="tabHerdList"></ul>
+    </div>
+  </div></div>
+</section>
+
+<section data-card="lead">
+  <div class="frame"><div class="grid">
+    <div class="card"><h2 data-t="leadTitle"></h2><div class="strip" data-t="leadKicker"></div><img class="art" data-art="lead"><p class="body" data-t="leadBody"></p></div>
+    <div class="card side"><h3 data-t="leadSide"></h3>
+      <div class="btn"><img data-art="goIcon"><div><b data-t="goLabel"></b><span data-t="goDesc"></span></div></div>
+      <div class="btn"><img data-art="backIcon"><div><b data-t="backLabel"></b><span data-t="backDesc"></span></div></div>
+    </div>
+  </div></div>
+</section>
+
+<section data-card="danger">
+  <div class="frame"><div class="grid">
+    <div class="card"><h2 data-t="dangerTitle"></h2><div class="strip" data-t="dangerKicker"></div><img class="art" data-art="predator"><p class="body" data-t="dangerBody"></p></div>
+    <div class="card side"><h3 data-t="dangerSide"></h3><div data-rows="dangerRows"></div></div>
+  </div></div>
+</section>
+
+<section data-card="compat">
+  <div class="frame"><div class="compat"><h2 style="text-align:center;color:var(--accent-d);font-weight:800;font-size:24px;text-transform:uppercase;padding:12px" data-t="compatTitle"></h2><div class="strip" data-t="tagline"></div><div data-rows="compatRows"></div></div></div>
+</section>
+
+<section data-card="guards">
+  <div class="frame"><div class="grid">
+    <div class="card"><h2 data-t="guardsTitle"></h2><div class="strip" data-t="guardsKicker"></div><img class="art" data-art="guards"><p class="body" data-t="guardsBody"></p></div>
+    <div class="card side"><h3 data-t="wander"></h3><div data-odds="wander"></div><h3 data-t="predator"></h3><div data-odds="predator"></div></div>
+  </div></div>
+</section>
+<script src="content.js"></script>
+</body></html>
