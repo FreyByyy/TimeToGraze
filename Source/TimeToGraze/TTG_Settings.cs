@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
@@ -35,6 +36,11 @@ public class TTG_Settings : ModSettings
 
     public float maxGrazingHours = 16f;
 
+    // Herding races changed from the XML defaults (by defName, so removed mods are simply ignored).
+    public List<string> herdingAdded = new List<string>();
+
+    public List<string> herdingRemoved = new List<string>();
+
     private Vector2 scroll;
 
     private float viewHeight = 900f;
@@ -56,6 +62,13 @@ public class TTG_Settings : ModSettings
         Scribe_Values.Look(ref routineMessages, "routineMessages", true);
         Scribe_Values.Look(ref minGrazingHours, "minGrazingHours", 2f);
         Scribe_Values.Look(ref maxGrazingHours, "maxGrazingHours", 16f);
+        Scribe_Collections.Look(ref herdingAdded, "herdingAdded", LookMode.Value);
+        Scribe_Collections.Look(ref herdingRemoved, "herdingRemoved", LookMode.Value);
+        if (Scribe.mode == LoadSaveMode.PostLoadInit)
+        {
+            herdingAdded ??= new List<string>();
+            herdingRemoved ??= new List<string>();
+        }
     }
 
     public void Reset()
@@ -96,6 +109,13 @@ public class TTG_Settings : ModSettings
         PercentSlider(listing, "TTG_Settings_Dog", ref predatorDog);
         PercentSlider(listing, "TTG_Settings_Shepherd", ref predatorShepherd);
         PercentSlider(listing, "TTG_Settings_Both", ref predatorBoth);
+
+        Header(listing, "TTG_Settings_Herding");
+        listing.Label("TTG_Settings_HerdingDesc".Translate());
+        if (listing.ButtonText("TTG_Settings_HerdingAnimals".Translate(HerdingRaces.AllowedCount)))
+        {
+            Find.WindowStack.Add(new Dialog_HerdingAnimals());
+        }
 
         Header(listing, "TTG_Settings_General");
         listing.CheckboxLabeled("TTG_Settings_SkillScaling".Translate(), ref shepherdSkillScaling, "TTG_Settings_SkillScalingDesc".Translate());

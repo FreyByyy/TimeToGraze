@@ -33,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
-    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.7.4998-unstable" />
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.7.5014-unstable" />
     <PackageReference Include="Lib.Harmony.Ref" Version="3.0.0-rc.2" />
   </ItemGroup>
 

@@ -127,6 +127,15 @@
   <TTG_Settings_Dog>Herding dog</TTG_Settings_Dog>
   <TTG_Settings_Shepherd>Shepherd</TTG_Settings_Shepherd>
   <TTG_Settings_Both>Shepherd and dog</TTG_Settings_Both>
+  <TTG_Settings_Herding>Herding animals</TTG_Settings_Herding>
+  <TTG_Settings_HerdingDesc>Choose which animals can learn the Herding training, including animals from other mods. Changes apply right away.</TTG_Settings_HerdingDesc>
+  <TTG_Settings_HerdingAnimals>Animals that can learn Herding ({0})...</TTG_Settings_HerdingAnimals>
+  <TTG_HerdingDialog_Title>Animals that can learn Herding</TTG_HerdingDialog_Title>
+  <TTG_HerdingDialog_Desc>Ticked animals can be trained in Herding (after Guard) and assigned as a pen's herding dog. Only animals with at least intermediate trainability are listed. An animal whose race is unticked keeps its training but stops herding.</TTG_HerdingDialog_Desc>
+  <TTG_HerdingDialog_Search>Search by name or mod...</TTG_HerdingDialog_Search>
+  <TTG_HerdingDialog_Reset>Reset to defaults</TTG_HerdingDialog_Reset>
+  <TTG_HerdingDialog_Default>default</TTG_HerdingDialog_Default>
+  <TTG_HerdingDialog_None>No animals found.</TTG_HerdingDialog_None>
   <TTG_Settings_General>General</TTG_Settings_General>
   <TTG_Settings_SkillScaling>Shepherd effect scales with Animals skill</TTG_Settings_SkillScaling>
   <TTG_Settings_SkillScalingDesc>Skill 10 gives the configured values; lower skill is weaker, higher is stronger.</TTG_Settings_SkillScalingDesc>

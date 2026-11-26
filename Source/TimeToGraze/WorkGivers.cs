@@ -221,7 +221,7 @@ public class JobGiver_GuardHerd : ThinkNode_JobGiver
 {
     protected override Job TryGiveJob(Pawn pawn)
     {
-        if (GrazingRegistry.IsEmpty || !pawn.Spawned || pawn.Downed || pawn.roping.IsRoped || pawn.training == null || !pawn.training.HasLearned(TTG_DefOf.TTG_Herding))
+        if (GrazingRegistry.IsEmpty || !pawn.Spawned || pawn.Downed || pawn.roping.IsRoped || !HerdingRaces.CanHerd(pawn))
         {
             return null;
         }

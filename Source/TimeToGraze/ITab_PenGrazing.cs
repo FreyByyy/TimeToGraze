@@ -250,7 +250,7 @@ public class ITab_PenGrazing : ITab_PenBase
             List<FloatMenuOption> options = new List<FloatMenuOption> { new FloatMenuOption("TTG_None".Translate(), () => comp.dog = null) };
             foreach (Pawn animal in map.mapPawns.SpawnedColonyAnimals)
             {
-                if (animal.training == null || !animal.training.HasLearned(TTG_DefOf.TTG_Herding))
+                if (!HerdingRaces.CanHerd(animal))
                 {
                     continue;
                 }

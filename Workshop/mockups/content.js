@@ -38,7 +38,7 @@ const TEXT = {
     dangerSide: "What happens",
     dangerRows: [["Predator hunting the herd", "Back home"], ["Toxic fallout or haze", "Back home"], ["Unsafe temperature", "Back home"], ["Enemies on the map", "You choose"]],
     compatTitle: "Compatibility",
-    compatRows: [["Game versions", "1.6 · 1.7"], ["Requires", "Harmony"], ["DLC", "Not required"], ["Existing saves", "Safe to add and remove"], ["Modded dogs", "race / trainableTags: TTG_Herding"], ["Languages", "English · Russian"]],
+    compatRows: [["Game versions", "1.6 · 1.7"], ["Requires", "Harmony"], ["DLC", "Not required"], ["Existing saves", "Safe to add and remove"], ["Herding animals", "Any, set in mod settings"], ["Languages", "English · Russian"]],
   },
   ru: {
     contents: "Содержание",
@@ -77,7 +77,7 @@ const TEXT = {
     dangerSide: "Что произойдёт",
     dangerRows: [["Хищник охотится на стадо", "Домой"], ["Токсичные осадки, дымка", "Домой"], ["Опасная температура", "Домой"], ["Враги на карте", "Ваш выбор"]],
     compatTitle: "Совместимость",
-    compatRows: [["Версии игры", "1.6 · 1.7"], ["Требуется", "Harmony"], ["Дополнения", "Не нужны"], ["Сохранения", "Можно добавить и удалить"], ["Модовые собаки", "race / trainableTags: TTG_Herding"], ["Языки", "Английский · русский"]],
+    compatRows: [["Версии игры", "1.6 · 1.7"], ["Требуется", "Harmony"], ["Дополнения", "Не нужны"], ["Сохранения", "Можно добавить и удалить"], ["Животные для «Пастьбы»", "Любые, в настройках мода"], ["Языки", "Английский · русский"]],
   },
 };
 

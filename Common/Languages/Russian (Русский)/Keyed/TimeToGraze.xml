@@ -127,6 +127,15 @@
   <TTG_Settings_Dog>Пастушья собака</TTG_Settings_Dog>
   <TTG_Settings_Shepherd>Пастух</TTG_Settings_Shepherd>
   <TTG_Settings_Both>Пастух и собака</TTG_Settings_Both>
+  <TTG_Settings_Herding>Животные для «Пастьбы»</TTG_Settings_Herding>
+  <TTG_Settings_HerdingDesc>Выберите, какие животные могут учиться «Пастьбе», в том числе животные из других модов. Изменения применяются сразу.</TTG_Settings_HerdingDesc>
+  <TTG_Settings_HerdingAnimals>Животные, которые могут учиться «Пастьбе» ({0})...</TTG_Settings_HerdingAnimals>
+  <TTG_HerdingDialog_Title>Животные для «Пастьбы»</TTG_HerdingDialog_Title>
+  <TTG_HerdingDialog_Desc>Отмеченных животных можно обучить «Пастьбе» (после «Охраны») и назначить пастушьей собакой загона. В списке только животные со средней обучаемостью и выше. Если снять отметку с породы, обученные животные сохранят дрессировку, но перестанут пасти.</TTG_HerdingDialog_Desc>
+  <TTG_HerdingDialog_Search>Поиск по названию или моду...</TTG_HerdingDialog_Search>
+  <TTG_HerdingDialog_Reset>Сбросить по умолчанию</TTG_HerdingDialog_Reset>
+  <TTG_HerdingDialog_Default>по умолчанию</TTG_HerdingDialog_Default>
+  <TTG_HerdingDialog_None>Животные не найдены.</TTG_HerdingDialog_None>
   <TTG_Settings_General>Общие</TTG_Settings_General>
   <TTG_Settings_SkillScaling>Эффект пастуха зависит от навыка «Животные»</TTG_Settings_SkillScaling>
   <TTG_Settings_SkillScalingDesc>Навык 10 даёт значения из настроек; ниже — слабее, выше — сильнее.</TTG_Settings_SkillScalingDesc>
