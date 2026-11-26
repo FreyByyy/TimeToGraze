@@ -20,7 +20,10 @@ foreach ($item in @("About", "Common", "1.6", "1.7", "LoadFolders.xml")) {
     $src = Join-Path $root $item
     $dst = Join-Path $target $item
     if (Test-Path $src -PathType Container) {
-        robocopy $src $dst /MIR /NJH /NJS /NFL /NDL /NP | Out-Null
+        # About is copied without purging: the game writes PublishedFileId.txt there on the first
+        # Workshop upload, and deleting it turns "Update" into a second, separate upload.
+        $mode = if ($item -eq "About") { "/E" } else { "/MIR" }
+        robocopy $src $dst $mode /NJH /NJS /NFL /NDL /NP | Out-Null
         if ($LASTEXITCODE -ge 8) { throw "Copy of $item failed" }
     } else {
         Copy-Item $src $dst -Force
